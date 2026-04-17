@@ -11,10 +11,10 @@
     "api:dev": "npm --workspace services/api run dev",
     "api:build": "npm --workspace services/api run build",
     "api:start": "npm --workspace services/api run start",
+    "api:test": "npm --workspace services/api run test",
     "contracts:check": "npm --workspace packages/shared_contracts run check"
   },
   "engines": {
     "node": ">=20"
   }
 }
-

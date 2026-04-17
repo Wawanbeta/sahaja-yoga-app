@@ -21,6 +21,9 @@ Angelegt:
 - Shared Contracts in `packages/shared_contracts`
 - Flutter-Zielstruktur in `apps/mobile_desktop`
 - Seed-Content in `content/seeds`
+- API-Tests mit Fake-Talk-Client
+- TTL-Cache fuer externe API-Antworten
+- Mediathek-UI-Slice mit vorbereitetem API-Einstieg
 
 Blocker:
 
@@ -59,4 +62,4 @@ curl "http://localhost:8787/v1/inspiration/today?lang=de"
 3. API-Prototyp starten und Healthcheck testen.
 4. Talk-Proxy gegen die externe API testen.
 5. Lokale Tagebuchspeicherung in Flutter mit SQLite/Drift vorbereiten.
-
+6. Echten Flutter-HTTP-Client fuer Inspiration und Mediathek einbauen.

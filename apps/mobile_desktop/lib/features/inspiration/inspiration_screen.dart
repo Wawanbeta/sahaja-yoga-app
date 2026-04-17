@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/content/seed_content.dart';
 import '../journal/journal_screen.dart';
+import '../media_library/media_library_screen.dart';
 import '../meditation/meditation_screen.dart';
 
 class InspirationScreen extends StatelessWidget {
@@ -63,6 +64,17 @@ class InspirationScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
+                    builder: (_) => const MediaLibraryScreen(),
+                  ),
+                );
+              },
+              child: const Text('Mediathek oeffnen'),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
                     builder: (_) => const JournalScreen(),
                   ),
                 );
@@ -75,4 +87,3 @@ class InspirationScreen extends StatelessWidget {
     );
   }
 }
-

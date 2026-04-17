@@ -36,3 +36,17 @@ lib/
 ## Naechster Schritt
 
 Flutter-Projekt hier initialisieren und zuerst eine App-Shell mit Navigation und lokalem Seed-Content bauen.
+
+## Lokale API konfigurieren
+
+Die App erwartet standardmaessig:
+
+```bash
+http://127.0.0.1:8787
+```
+
+Bei Bedarf kann die API-Basis beim Start gesetzt werden:
+
+```bash
+flutter run --dart-define=API_BASE_URL=http://127.0.0.1:8787
+```

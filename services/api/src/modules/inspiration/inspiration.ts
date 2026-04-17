@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 interface SeedInspiration {
   id: string;
@@ -15,7 +16,7 @@ interface SeedInspiration {
   };
 }
 
-const seedPath = resolve(process.cwd(), '../../content/seeds/inspirations.json');
+const seedPath = resolve(dirname(fileURLToPath(import.meta.url)), '../../../../../content/seeds/inspirations.json');
 
 async function readSeedInspirations(): Promise<SeedInspiration[]> {
   const raw = await readFile(seedPath, 'utf8');
@@ -33,4 +34,3 @@ export async function getTodayInspiration(language: string): Promise<SeedInspira
 
   return byLanguage ?? fallback;
 }
-

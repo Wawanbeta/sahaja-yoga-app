@@ -1,4 +1,9 @@
-import type { LearnSahajaYogaClient } from '../../integrations/learn_sahaja_yoga/client.js';
+export interface TalksClient {
+  listTalks(searchParams: URLSearchParams): Promise<unknown>;
+  searchTalks(searchParams: URLSearchParams): Promise<unknown>;
+  getTalk(id: string): Promise<unknown>;
+  getMetadata(kind: string): Promise<unknown>;
+}
 
 const allowedMetaKinds = new Set([
   'categories',
@@ -9,23 +14,22 @@ const allowedMetaKinds = new Set([
   'years'
 ]);
 
-export function listTalks(client: LearnSahajaYogaClient, searchParams: URLSearchParams): Promise<unknown> {
+export function listTalks(client: TalksClient, searchParams: URLSearchParams): Promise<unknown> {
   return client.listTalks(searchParams);
 }
 
-export function searchTalks(client: LearnSahajaYogaClient, searchParams: URLSearchParams): Promise<unknown> {
+export function searchTalks(client: TalksClient, searchParams: URLSearchParams): Promise<unknown> {
   return client.searchTalks(searchParams);
 }
 
-export function getTalk(client: LearnSahajaYogaClient, id: string): Promise<unknown> {
+export function getTalk(client: TalksClient, id: string): Promise<unknown> {
   return client.getTalk(id);
 }
 
-export function getMetadata(client: LearnSahajaYogaClient, kind: string): Promise<unknown> {
+export function getMetadata(client: TalksClient, kind: string): Promise<unknown> {
   if (!allowedMetaKinds.has(kind)) {
     throw new Error(`Unsupported metadata kind: ${kind}`);
   }
 
   return client.getMetadata(kind);
 }
-
