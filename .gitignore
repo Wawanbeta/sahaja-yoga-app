@@ -1,0 +1,65 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node / TypeScript
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+.eslintcache
+
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+
+# Android
+android/.gradle/
+android/local.properties
+android/app/debug
+android/app/profile
+android/app/release
+*.jks
+*.keystore
+
+# iOS / macOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+macos/Flutter/ephemeral/
+*.xcworkspace
+*.xcuserstate
+DerivedData/
+
+# Windows
+windows/flutter/ephemeral/
+*.exe
+*.pdb
+
+# IDE
+.idea/
+.vscode/
+
+# Local generated exports
+exports/
+tmp/
+

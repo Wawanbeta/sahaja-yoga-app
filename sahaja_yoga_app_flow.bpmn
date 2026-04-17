@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.6.1">
+  <bpmn:process id="SahajaYogaApp" name="Sahaja Yoga App Flow" isExecutable="false">
+    <bpmn:startEvent id="StartEvent" name="App öffnen" />
+    <bpmn:task id="Inspiration" name="Tägliche Inspiration (Zitat, Nirmala Vidya)">
+      <bpmn:incoming>flow15</bpmn:incoming>
+      <bpmn:incoming>Flow_0ivnksi</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:task id="Kurs" name="Einführungskurs für Anfänger" />
+    <bpmn:task id="Kalender" name="Kalender (Mondphasen, Events, Erinnerungen)" />
+    <bpmn:task id="Meditation" name="Meditation starten (Geführt/Frei)">
+      <bpmn:incoming>Flow_1mxowwa</bpmn:incoming>
+      <bpmn:outgoing>Flow_077afvt</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Mantren" name="Mantren lernen (Text + Audio)">
+      <bpmn:incoming>flow16</bpmn:incoming>
+      <bpmn:incoming>Flow_077afvt</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ivnksi</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1mxowwa</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Mediathek" name="Mediathek (Nirmala Vidya Videos)">
+      <bpmn:incoming>Flow_09nh7so</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qdmat1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Tagebuch" name="Tagebuch (Reflexion)" />
+    <bpmn:task id="Empfehlungen" name="Persönliche Empfehlungen" />
+    <bpmn:task id="Gemeinschaft" name="Gemeinschaft (Zentren, Online)">
+      <bpmn:incoming>Flow_1qdmat1</bpmn:incoming>
+      <bpmn:outgoing>Flow_09nh7so</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Offline" name="Offline-Modus (Heruntergeladene Inhalte)" />
+    <bpmn:endEvent id="EndEvent" name="Nutzer motiviert &#38; inspiriert" />
+    <bpmn:sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="Inspiration" />
+    <bpmn:sequenceFlow id="flow2" name="Impuls erinnert an Event" sourceRef="Inspiration" targetRef="Kalender" />
+    <bpmn:sequenceFlow id="flow3" name="Impuls motiviert zur Praxis" sourceRef="Inspiration" targetRef="Meditation" />
+    <bpmn:sequenceFlow id="flow4" name="Impuls führt zu Mantra" sourceRef="Inspiration" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="flow5" name="Impuls verweist auf Rede" sourceRef="Inspiration" targetRef="Mediathek" />
+    <bpmn:sequenceFlow id="flow6" name="Neue Nutzer → Kurs" sourceRef="Inspiration" targetRef="Kurs" />
+    <bpmn:sequenceFlow id="flow7" name="Event → Meditation" sourceRef="Kalender" targetRef="Meditation" />
+    <bpmn:sequenceFlow id="flow8" name="Event → passendes Mantra" sourceRef="Kalender" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="flow9" name="Nach Praxis → Eintrag" sourceRef="Meditation" targetRef="Tagebuch" />
+    <bpmn:sequenceFlow id="flow10" name="Mantra erklärt in Rede" sourceRef="Mantren" targetRef="Mediathek" />
+    <bpmn:sequenceFlow id="flow11" name="Rede enthält Mantra" sourceRef="Mediathek" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="flow12" name="Themenbezogene Auswahl" sourceRef="Mediathek" targetRef="Empfehlungen" />
+    <bpmn:sequenceFlow id="flow13" name="Erfahrungen → Empfehlungen" sourceRef="Tagebuch" targetRef="Empfehlungen" />
+    <bpmn:sequenceFlow id="flow14" name="Event → Kalender" sourceRef="Gemeinschaft" targetRef="Kalender" />
+    <bpmn:sequenceFlow id="flow15" name="Kollektiv → Motivation" sourceRef="Gemeinschaft" targetRef="Inspiration" />
+    <bpmn:sequenceFlow id="flow16" name="Empfehlung → neuer Impuls" sourceRef="Empfehlungen" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="flow17" name="Offline-Inhalte → Impuls" sourceRef="Offline" targetRef="Inspiration" />
+    <bpmn:sequenceFlow id="flow18" name="Offline-Meditation" sourceRef="Offline" targetRef="Meditation" />
+    <bpmn:sequenceFlow id="flow19" name="Offline-Mantra" sourceRef="Offline" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="flow20" sourceRef="Inspiration" targetRef="EndEvent" />
+    <bpmn:sequenceFlow id="Flow_0ivnksi" sourceRef="Mantren" targetRef="Inspiration" />
+    <bpmn:sequenceFlow id="Flow_077afvt" sourceRef="Meditation" targetRef="Mantren" />
+    <bpmn:sequenceFlow id="Flow_1mxowwa" sourceRef="Mantren" targetRef="Meditation" />
+    <bpmn:sequenceFlow id="Flow_1qdmat1" sourceRef="Mediathek" targetRef="Gemeinschaft" />
+    <bpmn:sequenceFlow id="Flow_09nh7so" sourceRef="Gemeinschaft" targetRef="Mediathek" />
+    <bpmn:textAnnotation id="TextAnnotation_0wnfxsz">
+      <bpmn:text>Mantra geübt → neuer Impuls</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0dbw059" associationDirection="None" sourceRef="Flow_0ivnksi" targetRef="TextAnnotation_0wnfxsz" />
+    <bpmn:textAnnotation id="TextAnnotation_0pz6r41">
+      <bpmn:text>passende Mantra</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_12mx7hf" associationDirection="None" sourceRef="Flow_077afvt" targetRef="TextAnnotation_0pz6r41" />
+    <bpmn:textAnnotation id="TextAnnotation_0vwlx0p">
+      <bpmn:text>zurück in die Stillephase</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0mp9h6k" associationDirection="None" sourceRef="Flow_1mxowwa" targetRef="TextAnnotation_0vwlx0p" />
+    <bpmn:textAnnotation id="TextAnnotation_0f23etu">
+      <bpmn:text>Nutzer können Inhalte der Mediathek (z. B. eine Rede, Bhagavad Gita, ein bestimmtes Thema) in Threads/Diskussionen besprechen.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0f4ba94" associationDirection="None" sourceRef="Flow_1qdmat1" targetRef="TextAnnotation_0f23etu" />
+    <bpmn:textAnnotation id="TextAnnotation_0gb21s9">
+      <bpmn:text>Aus dem Thread heraus können sie die Rede direkt öffnen.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1wm66wj" associationDirection="None" sourceRef="Flow_09nh7so" targetRef="TextAnnotation_0gb21s9" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_2">
+    <bpmndi:BPMNPlane id="Plane_2" bpmnElement="SahajaYogaApp">
+      <bpmndi:BPMNShape id="StartEvent_di" bpmnElement="StartEvent">
+        <omgdc:Bounds x="472" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="464" y="148" width="53" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Inspiration_di" bpmnElement="Inspiration">
+        <omgdc:Bounds x="1070" y="390" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Kurs_di" bpmnElement="Kurs">
+        <omgdc:Bounds x="1070" y="80" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Kalender_di" bpmnElement="Kalender">
+        <omgdc:Bounds x="160" y="1160" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Meditation_di" bpmnElement="Meditation">
+        <omgdc:Bounds x="360" y="860" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Mantren_di" bpmnElement="Mantren">
+        <omgdc:Bounds x="1080" y="790" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Mediathek_di" bpmnElement="Mediathek">
+        <omgdc:Bounds x="1710" y="630" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Tagebuch_di" bpmnElement="Tagebuch">
+        <omgdc:Bounds x="820" y="1270" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Empfehlungen_di" bpmnElement="Empfehlungen">
+        <omgdc:Bounds x="1550" y="1280" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gemeinschaft_di" bpmnElement="Gemeinschaft">
+        <omgdc:Bounds x="1910" y="1470" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Offline_di" bpmnElement="Offline">
+        <omgdc:Bounds x="360" y="370" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_di" bpmnElement="EndEvent">
+        <omgdc:Bounds x="1562" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1536" y="114.5" width="88" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_12mx7hf_di" bpmnElement="Association_12mx7hf">
+        <omgdi:waypoint x="823.1407102373805" y="891.2042349830442" />
+        <omgdi:waypoint x="823" y="900" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0mp9h6k_di" bpmnElement="Association_0mp9h6k">
+        <omgdi:waypoint x="817.8396834503394" y="830.3988276707065" />
+        <omgdi:waypoint x="810" y="821" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0f4ba94_di" bpmnElement="Association_0f4ba94">
+        <omgdi:waypoint x="1905" y="1097" />
+        <omgdi:waypoint x="1885" y="1165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1wm66wj_di" bpmnElement="Association_1wm66wj">
+        <omgdi:waypoint x="1973.672653142332" y="1087.8542859981617" />
+        <omgdi:waypoint x="1992" y="1019" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0wnfxsz_di" bpmnElement="TextAnnotation_0wnfxsz">
+        <omgdc:Bounds x="1280" y="560" width="99.99156545209178" height="40.48582995951417" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_di" bpmnElement="flow1">
+        <omgdi:waypoint x="508" y="129" />
+        <omgdi:waypoint x="930" y="129" />
+        <omgdi:waypoint x="1050" y="300" />
+        <omgdi:waypoint x="1138" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_di" bpmnElement="flow2">
+        <omgdi:waypoint x="1070" y="460" />
+        <omgdi:waypoint x="260" y="700" />
+        <omgdi:waypoint x="260" y="1160" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="257" y="638" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_di" bpmnElement="flow3">
+        <omgdi:waypoint x="1146" y="470" />
+        <omgdi:waypoint x="810" y="650" />
+        <omgdi:waypoint x="460" y="860" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="661" y="666" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_di" bpmnElement="flow4">
+        <omgdi:waypoint x="1180" y="470" />
+        <omgdi:waypoint x="1180" y="790" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1113" y="652" width="73" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_di" bpmnElement="flow5">
+        <omgdi:waypoint x="1290" y="435" />
+        <omgdi:waypoint x="1480" y="510" />
+        <omgdi:waypoint x="1748" y="630" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1502" y="496" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_di" bpmnElement="flow6">
+        <omgdi:waypoint x="1180" y="390" />
+        <omgdi:waypoint x="1180" y="160" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1131" y="262" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow7_di" bpmnElement="flow7">
+        <omgdi:waypoint x="283" y="1160" />
+        <omgdi:waypoint x="408" y="940" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="304" y="1006" width="51" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow8_di" bpmnElement="flow8">
+        <omgdi:waypoint x="360" y="1177" />
+        <omgdi:waypoint x="680" y="1040" />
+        <omgdi:waypoint x="1127" y="870" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="883" y="910" width="54" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow9_di" bpmnElement="flow9">
+        <omgdi:waypoint x="508" y="940" />
+        <omgdi:waypoint x="770" y="1160" />
+        <omgdi:waypoint x="880" y="1270" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="823" y="1176" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow10_di" bpmnElement="flow10">
+        <omgdi:waypoint x="1280" y="802" />
+        <omgdi:waypoint x="1490" y="700" />
+        <omgdi:waypoint x="1710" y="670" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1360" y="697" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow11_di" bpmnElement="flow11">
+        <omgdi:waypoint x="1820" y="710" />
+        <omgdi:waypoint x="1500" y="750" />
+        <omgdi:waypoint x="1280" y="827" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1539" y="716" width="63" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow12_di" bpmnElement="flow12">
+        <omgdi:waypoint x="1820" y="710" />
+        <omgdi:waypoint x="1820" y="950" />
+        <omgdi:waypoint x="1780" y="1100" />
+        <omgdi:waypoint x="1650" y="1280" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1735" y="899" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow13_di" bpmnElement="flow13">
+        <omgdi:waypoint x="920" y="1350" />
+        <omgdi:waypoint x="1090" y="1420" />
+        <omgdi:waypoint x="1540" y="1350" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1166" y="1360" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow14_di" bpmnElement="flow14">
+        <omgdi:waypoint x="1910" y="1526" />
+        <omgdi:waypoint x="1355" y="1526" />
+        <omgdi:waypoint x="970" y="1470" />
+        <omgdi:waypoint x="260" y="1240" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1585" y="1501" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow15_di" bpmnElement="flow15">
+        <omgdi:waypoint x="2090" y="1470" />
+        <omgdi:waypoint x="2070" y="440" />
+        <omgdi:waypoint x="1290" y="420" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1892" y="396" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow16_di" bpmnElement="flow16">
+        <omgdi:waypoint x="1612" y="1280" />
+        <omgdi:waypoint x="1410" y="1070" />
+        <omgdi:waypoint x="1218" y="870" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1463" y="1066" width="73" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow17_di" bpmnElement="flow17">
+        <omgdi:waypoint x="560" y="410" />
+        <omgdi:waypoint x="810" y="360" />
+        <omgdi:waypoint x="880" y="360" />
+        <omgdi:waypoint x="1070" y="400" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="788" y="326" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow18_di" bpmnElement="flow18">
+        <omgdi:waypoint x="460" y="450" />
+        <omgdi:waypoint x="460" y="860" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="416" y="763" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow19_di" bpmnElement="flow19">
+        <omgdi:waypoint x="514" y="450" />
+        <omgdi:waypoint x="830" y="630" />
+        <omgdi:waypoint x="1090" y="790" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="935" y="673" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow20_di" bpmnElement="flow20">
+        <omgdi:waypoint x="1240" y="390" />
+        <omgdi:waypoint x="1400" y="280" />
+        <omgdi:waypoint x="1565" y="179" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ivnksi_di" bpmnElement="Flow_0ivnksi">
+        <omgdi:waypoint x="1230" y="790" />
+        <omgdi:waypoint x="1230" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0dbw059_di" bpmnElement="Association_0dbw059">
+        <omgdi:waypoint x="1230" y="630" />
+        <omgdi:waypoint x="1284" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_077afvt_di" bpmnElement="Flow_077afvt">
+        <omgdi:waypoint x="560" y="910" />
+        <omgdi:waypoint x="840" y="890" />
+        <omgdi:waypoint x="1080" y="832" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mxowwa_di" bpmnElement="Flow_1mxowwa">
+        <omgdi:waypoint x="1080" y="830" />
+        <omgdi:waypoint x="820" y="830" />
+        <omgdi:waypoint x="560" y="878" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0pz6r41_di" bpmnElement="TextAnnotation_0pz6r41">
+        <omgdc:Bounds x="720" y="900" width="119.99309392265192" height="26.519337016574582" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0vwlx0p_di" bpmnElement="TextAnnotation_0vwlx0p">
+        <omgdc:Bounds x="740" y="780" width="100" height="40.88397790055248" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1qdmat1_di" bpmnElement="Flow_1qdmat1">
+        <omgdi:waypoint x="1850" y="710" />
+        <omgdi:waypoint x="1900" y="1070" />
+        <omgdi:waypoint x="1930" y="1220" />
+        <omgdi:waypoint x="2017" y="1470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0f23etu_di" bpmnElement="TextAnnotation_0f23etu">
+        <omgdc:Bounds x="1830" y="1165" width="100" height="155.8011049723757" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_09nh7so_di" bpmnElement="Flow_09nh7so">
+        <omgdi:waypoint x="2016" y="1470" />
+        <omgdi:waypoint x="1980" y="1110" />
+        <omgdi:waypoint x="1960" y="1040" />
+        <omgdi:waypoint x="1902" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0gb21s9_di" bpmnElement="TextAnnotation_0gb21s9">
+        <omgdc:Bounds x="1960" y="935" width="100" height="83.97790055248618" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

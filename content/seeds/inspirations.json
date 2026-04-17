@@ -1,0 +1,29 @@
+[
+  {
+    "id": "seed-inspiration-001",
+    "title": "Beginne in Stille",
+    "body": "Nimm dir einen Moment, um ruhig zu werden und die Aufmerksamkeit nach innen zu lenken.",
+    "language": "de",
+    "sourceLabel": "Redaktioneller Seed-Content",
+    "sourceUrl": null,
+    "reviewStatus": "draft",
+    "linkedPractice": {
+      "type": "meditation",
+      "id": "seed-meditation-001"
+    }
+  },
+  {
+    "id": "seed-inspiration-002",
+    "title": "A moment of silence",
+    "body": "Take a quiet moment and let the attention settle within.",
+    "language": "en",
+    "sourceLabel": "Editorial seed content",
+    "sourceUrl": null,
+    "reviewStatus": "draft",
+    "linkedPractice": {
+      "type": "meditation",
+      "id": "seed-meditation-001"
+    }
+  }
+]
+

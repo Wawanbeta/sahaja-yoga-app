@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Sahaja Yoga App API
+  version: 0.1.0
+  description: Internal app API for the Sahaja Yoga cross-platform app.
+servers:
+  - url: http://localhost:8787
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Service status
+  /v1/inspiration/today:
+    get:
+      summary: Get today's inspiration
+      parameters:
+        - in: query
+          name: lang
+          schema:
+            type: string
+            default: de
+      responses:
+        "200":
+          description: Inspiration response
+  /v1/talks:
+    get:
+      summary: Proxy talk list from the Learn Sahaja Yoga API
+      responses:
+        "200":
+          description: Talk list
+  /v1/talks/search:
+    get:
+      summary: Proxy talk search from the Learn Sahaja Yoga API
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Search results
+  /v1/talks/{id}:
+    get:
+      summary: Proxy talk detail from the Learn Sahaja Yoga API
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Talk detail
+
