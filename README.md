@@ -135,6 +135,10 @@ Please read:
 - [CONTRIBUTING.md](./CONTRIBUTING.md)
 - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
 ## Naechster Entwicklungsschritt
 
 1. Flutter-Projekt in `apps/mobile_desktop` initialisieren.
